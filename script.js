@@ -420,7 +420,6 @@ function renderMembers(categoryIndex) {
       <h3>${profile.name}</h3>
       <p class="member-role">${profile.role}</p>
       <p>${profile.bio}</p>
-      <button class="member-read-more" type="button">Read full profile <span>↗</span></button>
     </article>
   `).join("");
   roster.innerHTML = `<div class="members-roster-heading">${category}</div>` +
@@ -434,7 +433,6 @@ function renderMembers(categoryIndex) {
         <h3>${profile.name}</h3>
         <p class="member-role">${profile.role}</p>
         <p>${profile.bio}</p>
-        <button class="member-read-more" type="button">Read full profile <span>↗</span></button>
       </article>
     `).join("");
     roster.innerHTML = `<div class="members-roster-heading">${category}</div>
@@ -479,19 +477,21 @@ function renderMembers(categoryIndex) {
       slot.classList.add("has-photo");
     });
   });
-  roster.querySelectorAll(".member-read-more").forEach(button => {
-    button.addEventListener("click", () => {
-      const card = button.closest(".member-card");
+  roster.querySelectorAll(".member-photo-slot").forEach(slot => {
+    slot.setAttribute("role", "button");
+    slot.setAttribute("tabindex", "0");
+    slot.addEventListener("click", event => {
+      event.preventDefault();
+      const card = slot.closest(".member-card");
       const profile = card.dataset.associateProfile
         ? researchAssociateProfiles[Number(card.dataset.profileIndex)]
         : profiles[Number(card.dataset.profileIndex)];
       openMemberProfile(profile, category);
     });
-  });
-  roster.querySelectorAll(".member-card").forEach(card => {
-    card.addEventListener("click", event => {
-      if (event.target.closest("input, label, button")) return;
-      card.querySelector(".member-read-more").click();
+    slot.addEventListener("keydown", event => {
+      if (event.key !== "Enter" && event.key !== " ") return;
+      event.preventDefault();
+      slot.click();
     });
   });
   prepareEditableText();
