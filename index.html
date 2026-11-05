@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#071b14">
+  <meta name="description" content="Walker Mycology Lab studies fungi to understand and advance human and environmental health.">
+  <title>Walker Mycology Lab</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Libre+Franklin:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header" id="top">
+    <a class="brand" href="#top" aria-label="Walker Mycology Lab home">
+      <span class="logo-placeholder lab-logo" aria-label="Walker Mycology Lab logo placeholder"></span>
+      <span class="brand-copy"><strong>Walker Mycology Lab</strong><small>Fungal Dream Team</small></span>
+    </a>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="#home">Home</a>
+      <a href="#research">Research</a>
+      <a href="#people">Lab Members</a>
+      <a href="#publications">Publications</a>
+      <a href="#news">News</a>
+      <a href="#resources">Resources</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="logo-placeholder university-logo" aria-label="University logo placeholder"></div>
+    <button class="menu-button" type="button" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow reveal">Mycology · Acadia University · Dept. Biology</p>
+        <h1 id="hero-title" class="reveal">Welcome to<br><em>Walker Mycology Lab.</em></h1>
+        <p class="hero-intro reveal">Walker Mycology Lab explores the chemistry, ecology, and biology of fungi to reveal new paths toward human health and environmental resilience.</p>
+        <a class="text-link reveal" href="#research">Explore our research <span>↗</span></a>
+      </div>
+      <div class="system-panel reveal" aria-label="Interactive fungal DNA visualization">
+        <div class="panel-label"><span>01 / Fungal systems</span><span id="cycle-count">Cycle 01</span></div>
+        <canvas id="cellCanvas"></canvas>
+        <div class="interaction-hint">Fungal DNA sequence</div>
+      </div>
+    </section>
+
+    <section class="section-view" id="section-view" aria-live="polite" hidden>
+      <button class="section-close" type="button" aria-label="Return to home">← <span>Home</span></button>
+      <div id="section-view-content"></div>
+    </section>
+
+    <section class="manifesto" id="research">
+      <p class="section-index">01 — Research</p>
+      <h2>Small organisms.<br>Extraordinary influence.</h2>
+      <div class="approach-grid">
+        <article>
+          <span>01</span>
+          <div class="line-art orbit" aria-hidden="true"><i></i><i></i><i></i></div>
+          <h3>Marine & coastal fungi</h3>
+          <p>Documenting the diversity and ecology of fungi in saltmarshes, intertidal habitats, seagrass beds, forests, and other coastal environments.</p>
+        </article>
+        <article>
+          <span>02</span>
+          <div class="line-art network" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+          <h3>Molecular biology</h3>
+          <p>Using molecular tools to investigate fungal identity, gene expression, evolution, and interactions.</p>
+        </article>
+        <article>
+          <span>03</span>
+          <div class="line-art branches" aria-hidden="true"><i></i><i></i><i></i></div>
+          <h3>Genomics & metagenomics</h3>
+          <p>Applying genome sequencing and environmental DNA approaches to explore fungal diversity and community function.</p>
+        </article>
+        <article>
+          <span>04</span>
+          <div class="line-art orbit" aria-hidden="true"><i></i><i></i><i></i></div>
+          <h3>Coastal plant-fungal interactions</h3>
+          <p>Investigating fungi associated with coastal and marine plants, including their ecological roles and host interactions.</p>
+        </article>
+        <article>
+          <span>05</span>
+          <div class="line-art network" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+          <h3>Fungal biodiversity</h3>
+          <p>Documenting and comparing fungal diversity across habitats to reveal patterns, distribution, and overlooked species.</p>
+        </article>
+        <article>
+          <span>06</span>
+          <div class="line-art branches" aria-hidden="true"><i></i><i></i><i></i></div>
+          <h3>Fungi in agroecosystems</h3>
+          <p>Studying fungal communities and their roles across agricultural landscapes, soils, crops, and managed ecosystems.</p>
+        </article>
+        <article>
+          <span>07</span>
+          <div class="line-art orbit" aria-hidden="true"><i></i><i></i><i></i></div>
+          <h3>Arbuscular mycorrhizal fungi</h3>
+          <p>Investigating AMF diversity, root associations, nutrient exchange, and contributions to plant health and soil function.</p>
+        </article>
+        <article>
+          <span>08</span>
+          <div class="line-art branches" aria-hidden="true"><i></i><i></i><i></i></div>
+          <h3>Lichens</h3>
+          <p>Exploring lichen diversity, ecology, symbiosis, and responses to environmental change across coastal and forest habitats.</p>
+        </article>
+        <article>
+          <span>09</span>
+          <div class="line-art orbit" aria-hidden="true"><i></i><i></i><i></i></div>
+          <h3>Endophytes</h3>
+          <p>Characterizing fungal endophytes in plants and investigating their ecology, diversity, and potential biological roles.</p>
+        </article>
+        <article>
+          <span>10</span>
+          <div class="line-art network" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+          <h3>Fungi in biocontrol</h3>
+          <p>Assessing fungal organisms and interactions for sustainable biological control in agriculture and natural systems.</p>
+        </article>
+        <article>
+          <span>11</span>
+          <div class="line-art network" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+          <h3>Bioremediation</h3>
+          <p>Investigating fungal capabilities to transform, break down, and reduce environmental contaminants.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="people-section" id="people">
+      <div>
+        <p class="section-index">02 — Lab Members</p>
+        <h2>Many disciplines.<br>One shared curiosity.</h2>
+      </div>
+      <div class="people-content">
+        <p>Our interdisciplinary team brings together mycology, chemistry, ecology, and data science. We believe careful observation and generous collaboration reveal the most useful answers.</p>
+        <a class="text-link" href="#people">Meet the team <span>↗</span></a>
+      </div>
+      <div class="people-visual" aria-hidden="true">
+        <div class="portrait-grid">
+          <div></div><div></div><div></div><div></div><div></div><div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-directory" aria-labelledby="directory-title">
+      <div class="directory-heading">
+        <p class="section-index">Explore the lab</p>
+        <h2 id="directory-title">Research in fungi,<br>from field to discovery.</h2>
+      </div>
+      <nav class="directory-links" aria-label="Lab sections">
+        <a href="#publications"><span>03</span><strong>Publications</strong><em>↗</em></a>
+        <a href="#news"><span>04</span><strong>News</strong><em>↗</em></a>
+        <a href="#resources"><span>05</span><strong>Resources</strong><em>↗</em></a>
+        <a href="#contact"><span>06</span><strong>Contact</strong><em>↗</em></a>
+      </nav>
+    </section>
+
+    <section class="lab-affiliations" aria-labelledby="affiliations-title">
+      <div>
+        <h2 id="affiliations-title">Lab affiliations</h2>
+      </div>
+      <div class="affiliation-list">
+        <label class="affiliation-slot">
+          <input type="file" accept="image/*" aria-label="Add affiliation image 1">
+          <span class="affiliation-upload">Add affiliation image</span>
+          <img alt="" hidden>
+        </label>
+        <label class="affiliation-slot">
+          <input type="file" accept="image/*" aria-label="Add affiliation image 2">
+          <span class="affiliation-upload">Add affiliation image</span>
+          <img alt="" hidden>
+        </label>
+        <label class="affiliation-slot">
+          <input type="file" accept="image/*" aria-label="Add affiliation image 3">
+          <span class="affiliation-upload">Add affiliation image</span>
+          <img alt="" hidden>
+        </label>
+        <label class="affiliation-slot">
+          <input type="file" accept="image/*" aria-label="Add affiliation image 4">
+          <span class="affiliation-upload">Add affiliation image</span>
+          <img alt="" hidden>
+        </label>
+        <label class="affiliation-slot">
+          <input type="file" accept="image/*" aria-label="Add affiliation image 5">
+          <span class="affiliation-upload">Add affiliation image</span>
+          <img alt="" hidden>
+        </label>
+        <label class="affiliation-slot">
+          <input type="file" accept="image/*" aria-label="Add affiliation image 6">
+          <span class="affiliation-upload">Add affiliation image</span>
+          <img alt="" hidden>
+        </label>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <a class="brand footer-brand" href="#top"><span class="logo-placeholder lab-logo" aria-hidden="true"></span><span>Walker Mycology Lab</span></a>
+    <div>
+      <p>Systems Biology &amp; Sustainable Design</p>
+      <p>Department of Biological Engineering<br>University Research Campus</p>
+    </div>
+    <div class="footer-links">
+      <a href="#">LinkedIn</a>
+      <a href="#">Bluesky</a>
+      <a href="#">Contact</a>
+    </div>
+  </footer>
+  <button class="site-editor-toggle" type="button" aria-controls="site-editor-toolbar" aria-expanded="false">Edit website text</button>
+  <div class="site-editor-toolbar" id="site-editor-toolbar" hidden>
+    <span>Editing mode</span>
+    <button class="editor-save" type="button">Save changes</button>
+    <button class="editor-reset" type="button">Reset text</button>
+    <button class="editor-close" type="button">Done</button>
+  </div>
+  <script src="script.js?v=10"></script>
+</body>
+</html>
