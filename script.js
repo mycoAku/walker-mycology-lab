@@ -233,11 +233,22 @@ function setEditorMode(active) {
 editorToggle.addEventListener("click", () => setEditorMode(true));
 document.querySelector(".editor-close").addEventListener("click", () => setEditorMode(false));
 document.querySelector(".editor-save").addEventListener("click", () => {
-  const saved = {};
+  let saved = {};
+  try {
+    saved = JSON.parse(localStorage.getItem(editableStorageKey) || "{}");
+  } catch {
+    saved = {};
+  }
   editableElements().forEach(element => {
     saved[element.dataset.editKey] = element.innerText.trim();
   });
   localStorage.setItem(editableStorageKey, JSON.stringify(saved));
+  const status = document.querySelector(".editor-save-status");
+  if (status) {
+    status.textContent = "Saved in this browser";
+    status.classList.add("visible");
+    window.setTimeout(() => status.classList.remove("visible"), 2500);
+  }
 });
 document.querySelector(".editor-reset").addEventListener("click", () => {
   if (!window.confirm("Reset all website text to the original content?")) return;
