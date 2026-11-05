@@ -280,7 +280,8 @@ const memberProfiles = {
     {
       name: "Ximena Roman",
       role: "Management",
-      bio: "Lab management and research associate."
+      bio: "Lab management and research associate.",
+      image: "uploads/ximena-roman.jpeg"
     }
   ],
   PhD: [
@@ -374,7 +375,8 @@ const researchAssociateProfiles = [
   {
     name: "Ximena Roman",
     role: "Research associate",
-    bio: "Research associate in the Walker Mycology Lab."
+    bio: "Research associate in the Walker Mycology Lab.",
+    image: "uploads/ximena-roman.jpeg"
   },
   {
     name: "Brent Robicheau",
