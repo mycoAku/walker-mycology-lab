@@ -212,6 +212,21 @@
     <button class="editor-reset" type="button">Reset text</button>
     <button class="editor-close" type="button">Done</button>
   </div>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.init();
+      window.netlifyIdentity.on("login", function () {
+        window.location.href = "/admin/#/";
+      });
+      if (window.location.hash.indexOf("invite_token=") !== -1 ||
+          window.location.hash.indexOf("recovery_token=") !== -1) {
+        window.netlifyIdentity.on("init", function () {
+          window.netlifyIdentity.open(window.location.hash.indexOf("invite_token=") !== -1 ? "signup" : "login");
+        });
+      }
+    }
+  </script>
   <script src="script.js?v=10"></script>
 </body>
 </html>
