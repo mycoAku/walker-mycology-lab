@@ -195,7 +195,13 @@ function editableElements(root = document) {
 function editableKey(element) {
   const all = [...document.querySelectorAll(element.tagName.toLowerCase())];
   const index = all.indexOf(element);
-  return `${element.tagName.toLowerCase()}:${index}`;
+  const text = (element.innerText || element.textContent || "")
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "")
+    .slice(0, 48);
+  return `page:${location.hash || "#home"}:${element.tagName.toLowerCase()}:${text || "untitled"}:${index}`;
 }
 
 function prepareEditableText(root = document) {
