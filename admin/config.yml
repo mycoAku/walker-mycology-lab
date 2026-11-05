@@ -1,0 +1,37 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: website-files
+    label: Website Files
+    files:
+      - name: index
+        label: Page Content and Layout
+        file: index.html
+        fields:
+          - label: HTML
+            name: body
+            widget: code
+            default_content_type: html
+
+      - name: script
+        label: Lab Members and Website Logic
+        file: script.js
+        fields:
+          - label: JavaScript
+            name: body
+            widget: code
+            default_content_type: javascript
+
+      - name: styles
+        label: Website Design
+        file: styles.css
+        fields:
+          - label: CSS
+            name: body
+            widget: code
+            default_content_type: css
