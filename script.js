@@ -187,7 +187,7 @@ const editorToolbar = document.querySelector(".site-editor-toolbar");
 const editableStorageKey = "walker-site-text";
 let editorActive = false;
 
-const cleanedTextKey = "walker-site-text-cleaned-v2";
+const cleanedTextKey = "walker-site-text-cleaned-v3";
 try {
   if (localStorage.getItem(cleanedTextKey) !== "1") {
     localStorage.removeItem(editableStorageKey);
@@ -210,7 +210,10 @@ try {
 
 function editableElements(root = document) {
   const candidates = root.querySelectorAll("h1, h2, h3, h4, p, strong, small, em, a, .section-index, .view-kicker, .view-row span, .members-roster-heading, .member-role, .affiliation-upload");
-  return [...candidates].filter(element => !element.querySelector("h1, h2, h3, p, strong, small"));
+  return [...candidates].filter(element =>
+    !element.querySelector("h1, h2, h3, p, strong, small") &&
+    !element.closest(".pi-card, .profile-detail-section")
+  );
 }
 
 function editableKey(element) {
