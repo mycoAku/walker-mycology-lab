@@ -362,9 +362,8 @@ const memberProfiles = {
   ],
   Management: [
     {
-      name: "Ximena Roman",
-      role: "Management",
-      bio: "Lab management and research associate.",
+      name: "Ximena Roman (BSc Biology)",
+      role: "Research Associate | Lab Technician | Lab Daily Operations",
       image: "uploads/ximena-roman.jpeg"
     }
   ],
@@ -457,9 +456,8 @@ const memberProfiles = {
 
 const researchAssociateProfiles = [
   {
-    name: "Ximena Roman",
-    role: "Research associate",
-    bio: "Research associate in the Walker Mycology Lab.",
+    name: "Ximena Roman (BSc Biology)",
+    role: "Research Associate | Lab Technician | Lab Daily Operations",
     image: "uploads/ximena-roman.jpeg"
   },
   {
