@@ -113,7 +113,7 @@ a { color: inherit; text-decoration: none; }
 .management-profile-side {
   display: grid;
   grid-template-rows: minmax(220px, 1fr) auto;
-  gap: 18px;
+  gap: 8px;
 }
 .management-media-slot {
   aspect-ratio: auto;
@@ -146,9 +146,13 @@ a { color: inherit; text-decoration: none; }
   padding: 18px 20px;
   border-top: 1px solid var(--line);
   color: #526159;
-  font-family: "DM Mono", monospace;
-  font-size: 11px;
+  font-family: "Libre Franklin", sans-serif;
+  font-size: 15px;
   line-height: 1.55;
+}
+.management-profile-caption strong {
+  color: var(--blue-dark);
+  font-weight: 700;
 }
 .member-read-more {
   display: inline-flex;
