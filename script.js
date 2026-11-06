@@ -362,8 +362,9 @@ const memberProfiles = {
   ],
   Management: [
     {
-      name: "Ximena Roman (BSc Biology)",
+      name: "Ximena Roman",
       role: "Research Associate | Lab Technician | Lab Daily Operations",
+      credential: "BSc Biology",
       image: "uploads/ximena-roman.jpeg"
     }
   ],
@@ -456,8 +457,9 @@ const memberProfiles = {
 
 const researchAssociateProfiles = [
   {
-    name: "Ximena Roman (BSc Biology)",
+    name: "Ximena Roman",
     role: "Research Associate | Lab Technician | Lab Daily Operations",
+    credential: "BSc Biology",
     image: "uploads/ximena-roman.jpeg"
   },
   {
@@ -529,6 +531,7 @@ function renderMembers(categoryIndex) {
       </label>
       <div class="pi-introduction">
         <h3>${profile.name}</h3>
+        ${profile.credential ? `<p class="member-credential">${profile.credential}</p>` : ""}
         <p class="member-role">${profile.role}</p>
         ${profile.bio ? `<p class="pi-bio">${profile.bio}</p>` : ""}
         ${category === "PI" && profile.labLogo ? `<figure class="pi-lab-logo"><img src="${profile.labLogo}" alt="${profile.labLogoAlt || ""}"></figure>` : ""}
@@ -546,6 +549,7 @@ function renderMembers(categoryIndex) {
           <input type="file" accept="image/*" aria-label="Replace photo for ${profile.name}">
         </label>
         <h3>${profile.name}</h3>
+        ${profile.credential ? `<p class="member-credential">${profile.credential}</p>` : ""}
         <p class="member-role">${profile.role}</p>
         <p>${profile.bio}</p>
       </article>
