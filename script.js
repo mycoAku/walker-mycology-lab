@@ -598,20 +598,29 @@ function renderMembers(categoryIndex) {
       <div class="members-roster-grid" style="margin-top: 28px;">${associateCards}</div>`;
   }
   if (category === "PI") {
+    const piGalleryImages = [
+      "uploads/allison-gallery-01.jpg",
+      "uploads/allison-gallery-02.jpg",
+      "uploads/allison-gallery-03.jpg",
+      "uploads/allison-gallery-04.jpg",
+      "uploads/allison-gallery-05.jpg",
+      "uploads/allison-gallery-06.jpg",
+      "uploads/allison-gallery-07.jpg"
+    ];
     roster.insertAdjacentHTML("beforeend", `
       <section class="pi-gallery" aria-labelledby="pi-gallery-title">
         <div class="pi-gallery-heading">
           <div>
-            <p class="section-index">Principal investigator gallery</p>
+            <p class="section-index">Gallery</p>
             <h2 id="pi-gallery-title">Lab moments</h2>
           </div>
           <p>Scroll through the gallery and add up to ten images.</p>
         </div>
         <div class="pi-gallery-track" role="list">
           ${Array.from({ length: 10 }, (_, index) => `
-            <label class="pi-gallery-slot" role="listitem">
+            <label class="pi-gallery-slot${piGalleryImages[index] ? " has-photo" : ""}" role="listitem"${piGalleryImages[index] ? ` style="--gallery-photo: url('${piGalleryImages[index]}')"` : ""}>
               <input type="file" accept="image/*" aria-label="Add principal investigator gallery image ${index + 1}">
-              <span>${String(index + 1).padStart(2, "0")}<small>Add image</small></span>
+              <span>${String(index + 1).padStart(2, "0")}${piGalleryImages[index] ? "" : "<small>Add image</small>"}</span>
             </label>
           `).join("")}
         </div>
