@@ -353,7 +353,9 @@ const memberProfiles = {
         </div>`,
       image: "uploads/allison-walker-portrait.webp",
       secondaryImage: "https://bayoffungi.wordpress.com/wp-content/uploads/2023/03/zocsewfi_400x400.jpeg?w=400",
-      secondaryImageAlt: "Allison K. Walker using a microscope"
+      secondaryImageAlt: "Allison K. Walker using a microscope",
+      labLogo: "uploads/walker-lab-logo.png",
+      labLogoAlt: "Walker Lab Fungal Dream Team logo"
     }
   ],
   Management: [
@@ -516,9 +518,12 @@ function renderMembers(categoryIndex) {
         <input type="file" accept="image/*" aria-label="Replace photo for ${profile.name}">
         ${category === "PI" ? "<span>Add a larger photo</span>" : ""}
       </label>
-      <h3>${profile.name}</h3>
-      <p class="member-role">${profile.role}</p>
-      ${profile.bio ? `<p>${profile.bio}</p>` : ""}
+      <div class="pi-introduction">
+        <h3>${profile.name}</h3>
+        <p class="member-role">${profile.role}</p>
+        ${profile.bio ? `<p class="pi-bio">${profile.bio}</p>` : ""}
+        ${category === "PI" && profile.labLogo ? `<figure class="pi-lab-logo"><img src="${profile.labLogo}" alt="${profile.labLogoAlt || ""}"></figure>` : ""}
+      </div>
       ${category === "PI" && profile.secondaryImage ? `<figure class="pi-secondary-photo"><img src="${profile.secondaryImage}" alt="${profile.secondaryImageAlt || profile.name}"><figcaption>Allison K. Walker</figcaption></figure>` : ""}
       ${category === "PI" && profile.details ? `<div class="pi-profile-details">${profile.details}</div>` : ""}
     </article>

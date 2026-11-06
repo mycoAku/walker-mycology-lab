@@ -171,15 +171,25 @@ body.profile-open { overflow: hidden; }
   border-radius: 0;
   box-shadow: 22px 22px 0 rgba(184, 199, 190, .42);
 }
-.pi-card h3 { grid-column: 2; grid-row: 1; font-size: 38px; margin-top: 18px; max-width: 560px; }
-.pi-card .member-role { grid-column: 2; grid-row: 2; font-size: 12px; }
-.pi-card > p:last-child {
+.pi-introduction {
   grid-column: 2;
-  grid-row: 3;
+  grid-row: 1 / 4;
+  display: flex;
+  flex-direction: column;
+}
+.pi-card h3 { font-size: 38px; margin-top: 18px; max-width: 560px; }
+.pi-card .member-role { font-size: 12px; }
+.pi-bio {
   max-width: 520px;
   font-size: 18px;
   line-height: 1.65;
 }
+.pi-lab-logo {
+  width: 152px;
+  margin: 34px 0 0;
+  align-self: center;
+}
+.pi-lab-logo img { width: 100%; height: auto; display: block; }
 .pi-secondary-photo {
   grid-column: 3;
   grid-row: 1 / 4;
@@ -636,6 +646,7 @@ body.editor-mode [data-editable]:focus {
   .members-roster-grid { grid-template-columns: 1fr; }
   .pi-card { grid-template-columns: 1fr; }
   .pi-card .pi-photo-slot { grid-row: auto; }
+  .pi-introduction { grid-column: 1; grid-row: auto; }
   .pi-secondary-photo { grid-column: 1; grid-row: auto; }
   .pi-profile-details .profile-role-list,
   .pi-profile-details .profile-timeline,
