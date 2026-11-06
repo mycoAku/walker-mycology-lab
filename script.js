@@ -187,6 +187,16 @@ const editorToolbar = document.querySelector(".site-editor-toolbar");
 const editableStorageKey = "walker-site-text";
 let editorActive = false;
 
+const cleanedTextKey = "walker-site-text-cleaned-v2";
+try {
+  if (localStorage.getItem(cleanedTextKey) !== "1") {
+    localStorage.removeItem(editableStorageKey);
+    localStorage.setItem(cleanedTextKey, "1");
+  }
+} catch {
+  // Storage can be unavailable in privacy-restricted contexts.
+}
+
 const editingParam = new URLSearchParams(location.search).get("editing");
 try {
   if (editingParam === "1") sessionStorage.setItem("walker-editor-enabled", "1");
