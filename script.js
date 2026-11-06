@@ -371,7 +371,7 @@ const memberProfiles = {
   PhD: [
     {
       name: "Kendra Sampson",
-      role: "PhD student",
+      role: "PhD Candidate",
       bio: "From Louisdale, Nova Scotia, Kendra investigated arbuscular mycorrhizal fungi in a critically imperilled plant <em>Crocanthemum canadense</em> (Rockrose) for her Honours. Kendra continued her MSc (’23) in our lab, also examining AMF and sediment carbon densities in dominant salt marsh <em>Sporobolus</em> (<em>Spartina</em>) species in Bay of Fundy salt marshes as part of the NSERC ResNet project under the co-supervision of Dr. Danika van Proosdij (Saint Mary’s University). Currently a PhD Candidate and Instructor in the Biology Department.",
       image: "https://bayoffungi.wordpress.com/wp-content/uploads/2023/03/kendra-1.jpeg?w=694"
     }
