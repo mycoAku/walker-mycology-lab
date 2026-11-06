@@ -316,6 +316,7 @@ const memberProfiles = {
         <div class="profile-detail-section">
           <h3>Leadership &amp; Service</h3>
           <ul class="profile-role-list">
+            <li><span>Honors Program Coordinator</span>Acadia University</li>
             <li><span>Director</span><a href="https://herbarium.acadiau.ca/home.html" target="_blank" rel="noopener">E.C. Smith Herbarium</a></li>
             <li><span>Co-Editor in Chief</span><a href="https://www.journals.elsevier.com/fungal-ecology" target="_blank" rel="noopener">Fungal Ecology</a></li>
             <li><span>Vice-President</span><a href="https://www.nsmycologicalsociety.org/" target="_blank" rel="noopener">Nova Scotia Mycological Society</a></li>
