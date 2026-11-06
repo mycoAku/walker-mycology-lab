@@ -189,10 +189,8 @@ let editorActive = false;
 
 const cleanedTextKey = "walker-site-text-cleaned-v4";
 try {
-  if (localStorage.getItem(cleanedTextKey) !== "1") {
-    localStorage.removeItem(editableStorageKey);
-    localStorage.setItem(cleanedTextKey, "1");
-  }
+  localStorage.removeItem(editableStorageKey);
+  localStorage.removeItem(cleanedTextKey);
 } catch {
   // Storage can be unavailable in privacy-restricted contexts.
 }
