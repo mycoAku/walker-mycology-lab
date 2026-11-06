@@ -363,7 +363,8 @@ const memberProfiles = {
       name: "Ximena Roman",
       role: "Research Associate | Lab Technician | Lab Daily Operations",
       bio: "She completed her BSc in biology at Acadia University, where she was most interested in microbiology and cell biology. She is currently working in the Walker Lab as a Research Associate/Lab Technician where she collaborates with current students to instruct molecular techniques, support experimental workflows, and maintain daily lab operations.",
-      image: "uploads/ximena-roman.jpeg"
+      image: "uploads/ximena-roman.jpeg",
+      researchImage: "uploads/ximena-seagrass-research.jpg"
     }
   ],
   PhD: [
@@ -534,9 +535,9 @@ function renderMembers(categoryIndex) {
         </div>
       </div>
       <div class="management-profile-side">
-        <label class="member-photo-slot management-media-slot">
+        <label class="member-photo-slot management-media-slot${profile.researchImage ? " has-photo" : ""}"${profile.researchImage ? ` style="--member-photo: url('${profile.researchImage}')"` : ""}>
           <input type="file" accept="image/*" aria-label="Add a rectangular image for ${profile.name}">
-          <span>Add image</span>
+          ${profile.researchImage ? "" : "<span>Add image</span>"}
         </label>
         <div class="management-profile-caption"><strong>Investigating:</strong> Marine endophytic fungi associated with South Australian seagrass tissues</div>
       </div>
