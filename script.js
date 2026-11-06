@@ -206,13 +206,7 @@ function editableElements(root = document) {
 function editableKey(element) {
   const all = [...document.querySelectorAll(element.tagName.toLowerCase())];
   const index = all.indexOf(element);
-  const text = (element.innerText || element.textContent || "")
-    .trim()
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-|-$/g, "")
-    .slice(0, 48);
-  return `page:${location.hash || "#home"}:${element.tagName.toLowerCase()}:${text || "untitled"}:${index}`;
+  return `editor:v2:${location.hash || "#home"}:${element.tagName.toLowerCase()}:${index}`;
 }
 
 function prepareEditableText(root = document) {
@@ -226,6 +220,24 @@ function prepareEditableText(root = document) {
     if (!element.dataset.editKey) element.dataset.editKey = editableKey(element);
     if (saved[element.dataset.editKey] !== undefined) element.textContent = saved[element.dataset.editKey];
   });
+}
+
+function saveEditableText() {
+  let saved = {};
+  try {
+    saved = JSON.parse(localStorage.getItem(editableStorageKey) || "{}");
+  } catch {
+    saved = {};
+  }
+  editableElements().forEach(element => {
+    if (element.dataset.editKey) saved[element.dataset.editKey] = element.innerText.trim();
+  });
+  try {
+    localStorage.setItem(editableStorageKey, JSON.stringify(saved));
+  } catch {
+    return false;
+  }
+  return true;
 }
 
 function setEditorMode(active) {
@@ -242,21 +254,17 @@ function setEditorMode(active) {
 }
 
 editorToggle.addEventListener("click", () => setEditorMode(true));
-document.querySelector(".editor-close").addEventListener("click", () => setEditorMode(false));
+document.querySelector(".editor-close").addEventListener("click", () => {
+  saveEditableText();
+  setEditorMode(false);
+});
+document.addEventListener("input", event => {
+  if (event.target.matches("[data-editable]")) saveEditableText();
+});
 document.querySelector(".editor-save").addEventListener("click", () => {
-  let saved = {};
-  try {
-    saved = JSON.parse(localStorage.getItem(editableStorageKey) || "{}");
-  } catch {
-    saved = {};
-  }
-  editableElements().forEach(element => {
-    saved[element.dataset.editKey] = element.innerText.trim();
-  });
-  localStorage.setItem(editableStorageKey, JSON.stringify(saved));
   const status = document.querySelector(".editor-save-status");
   if (status) {
-    status.textContent = "Saved in this browser";
+    status.textContent = saveEditableText() ? "Saved in this browser" : "Could not save in this browser";
     status.classList.add("visible");
     window.setTimeout(() => status.classList.remove("visible"), 2500);
   }
