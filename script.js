@@ -187,6 +187,12 @@ const editorToolbar = document.querySelector(".site-editor-toolbar");
 const editableStorageKey = "walker-site-text";
 let editorActive = false;
 
+try {
+  localStorage.removeItem(editableStorageKey);
+} catch {
+  // Storage can be unavailable in privacy-restricted contexts.
+}
+
 function editableElements(root = document) {
   const candidates = root.querySelectorAll("h1, h2, h3, h4, p, strong, small, em, a, label, .section-index, .view-kicker, .view-row span, .members-roster-heading, .member-role, .affiliation-upload");
   return [...candidates].filter(element => !element.querySelector("h1, h2, h3, p, strong, small"));
