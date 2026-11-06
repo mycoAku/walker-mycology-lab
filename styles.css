@@ -143,6 +143,20 @@ a { color: inherit; text-decoration: none; }
 .member-profile-copy h2 { margin: 18px 0 12px; font-size: clamp(44px, 5vw, 72px); line-height: .92; letter-spacing: -.045em; }
 .member-profile-role { color: var(--blue-dark); font-family: "DM Mono", monospace; font-size: 12px; text-transform: uppercase; letter-spacing: .06em; }
 .member-profile-bio { max-width: 680px; margin-top: 30px; font-family: "Source Serif 4", Georgia, serif; font-size: clamp(18px, 1.5vw, 23px); line-height: 1.55; }
+.profile-detail-section { margin-top: 38px; padding-top: 24px; border-top: 1px solid var(--line); }
+.profile-detail-section h3 { margin: 0 0 18px; color: var(--blue-dark); font-family: "DM Mono", monospace; font-size: 11px; text-transform: uppercase; letter-spacing: .12em; }
+.profile-role-list, .profile-timeline, .profile-experience-list { margin: 0; padding: 0; list-style: none; }
+.profile-role-list li { display: grid; grid-template-columns: 150px 1fr; gap: 18px; padding: 10px 0; font-family: "Source Serif 4", Georgia, serif; border-bottom: 1px solid rgba(8, 26, 19, .08); }
+.profile-role-list li span { font-family: "DM Mono", monospace; font-size: 10px; text-transform: uppercase; letter-spacing: .06em; }
+.profile-role-list a, .profile-copy a { color: var(--blue-dark); text-decoration-thickness: 1px; text-underline-offset: 4px; }
+.profile-timeline li { display: grid; grid-template-columns: minmax(220px, 1fr) minmax(180px, .8fr); gap: 18px; padding: 12px 0; border-bottom: 1px solid rgba(8, 26, 19, .08); }
+.profile-timeline strong { font-family: "Source Serif 4", Georgia, serif; }
+.profile-timeline span { color: var(--muted); font-size: 13px; }
+.profile-experience-list li { position: relative; padding: 0 0 28px 22px; border-left: 1px solid var(--blue); }
+.profile-experience-list li::before { content: ""; position: absolute; top: 4px; left: -4px; width: 7px; height: 7px; border-radius: 50%; background: var(--blue); }
+.profile-experience-list strong { display: inline-block; font-family: "Source Serif 4", Georgia, serif; font-size: 18px; }
+.profile-experience-list time { float: right; color: var(--muted); font-family: "DM Mono", monospace; font-size: 10px; text-transform: uppercase; }
+.profile-experience-list p { margin: 7px 0 0; color: var(--muted); font-size: 14px; line-height: 1.55; }
 body.profile-open { overflow: hidden; }
 .pi-card {
   display: grid;
@@ -526,6 +540,8 @@ body.editor-mode [data-editable]:focus {
   .member-profile-photo { max-width: 420px; }
   .member-profile-copy { padding-top: 0; }
   .member-profile-copy h2 { font-size: 54px; }
+  .profile-role-list li, .profile-timeline li { grid-template-columns: 1fr; gap: 5px; }
+  .profile-experience-list time { float: none; display: block; margin-top: 5px; }
   footer { grid-template-columns: 1fr 1fr; gap: 60px; }
   .footer-links { grid-column: 1 / -1; justify-content: flex-start; }
 }

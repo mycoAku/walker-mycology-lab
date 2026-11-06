@@ -301,6 +301,45 @@ const memberProfiles = {
       name: "Allison K. Walker, PhD",
       role: "Lab PI · Professor, Biology, Acadia University",
       bio: "Director of the E.C. Smith Herbarium, Co-Editor in Chief of Fungal Ecology, Vice-President of the Nova Scotia Mycological Society, and member of the IUCN SSC Aquatic Fungi Specialist Group.",
+      details: `
+        <div class="profile-detail-section">
+          <h3>Leadership &amp; Service</h3>
+          <ul class="profile-role-list">
+            <li><span>Director</span><a href="https://herbarium.acadiau.ca/home.html" target="_blank" rel="noopener">E.C. Smith Herbarium</a></li>
+            <li><span>Co-Editor in Chief</span><a href="https://www.journals.elsevier.com/fungal-ecology" target="_blank" rel="noopener">Fungal Ecology</a></li>
+            <li><span>Vice-President</span><a href="https://www.nsmycologicalsociety.org/" target="_blank" rel="noopener">Nova Scotia Mycological Society</a></li>
+            <li><span>Member</span><a href="https://iucn.org/our-union/commissions/group/iucn-ssc-aquatic-fungi-specialist-group" target="_blank" rel="noopener">IUCN Species Survival Commission – Aquatic Fungi Specialist Group</a></li>
+            <li><span>Editorial Board member</span>Canadian Journal of Microbiology (2019–2024)</li>
+          </ul>
+        </div>
+        <div class="profile-detail-section">
+          <h3>Education</h3>
+          <ul class="profile-timeline">
+            <li><strong>PhD Coastal Sciences, Mycology</strong><span>University of Southern Mississippi · 2012</span></li>
+            <li><strong>MS Coastal Sciences, Mycology</strong><span>University of Southern Mississippi · 2007</span></li>
+            <li><strong>BSc Honours Botany</strong><span>University of Toronto · 2003</span></li>
+          </ul>
+        </div>
+        <div class="profile-detail-section">
+          <h3>Research Experience</h3>
+          <ul class="profile-experience-list">
+            <li>
+              <strong>Postdoctoral Scientist</strong><time>October 2012–July 2014</time>
+              <p>Department of Chemistry, Carleton University / Biodiversity (Mycology &amp; Microbiology), Agriculture &amp; Agri-Food Canada, Ottawa.</p>
+              <p>Co-supervisors: Prof. J. David Miller (Carleton University) and Dr. Keith A. Seifert (AAFC Research Scientist).</p>
+            </li>
+            <li>
+              <strong>Graduate Research Assistant</strong><time>August 2005–September 2012</time>
+              <p>Department of Coastal Sciences, University of Southern Mississippi Gulf Coast Research Laboratory, Ocean Springs, Mississippi, USA.</p>
+              <p>Supervisors: Dr. J. Campbell and Dr. DJ Grimes.</p>
+            </li>
+            <li>
+              <strong>Visiting Scientist</strong><time>September 2004–July 2005</time>
+              <p>USDA-ARS Systematic Mycology &amp; Botany Laboratory, Beltsville, Maryland, USA.</p>
+              <p>Supervisor: Dr. M. Catherine Aime.</p>
+            </li>
+          </ul>
+        </div>`,
       image: "https://bayoffungi.wordpress.com/wp-content/uploads/2023/03/zocsewfi_400x400.jpeg?w=400"
     }
   ],
@@ -584,6 +623,7 @@ function openMemberProfile(profile, category) {
           <h2 data-edit-key="profile:${profile.name}:name">${profile.name}</h2>
           <p class="member-profile-role" data-edit-key="profile:${profile.name}:role">${profile.role}</p>
           <p class="member-profile-bio" data-edit-key="profile:${profile.name}:bio">${profile.bio}</p>
+          ${profile.details || ""}
         </div>
       </div>
     </div>
