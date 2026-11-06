@@ -311,7 +311,6 @@ const memberProfiles = {
     {
       name: "Allison K. Walker, PhD",
       role: "Principal investigator · Professor, Biology, Acadia University",
-      bio: "Professor in the Department of Biology at Acadia University.",
       details: `
         <div class="profile-detail-section">
           <h3>Leadership &amp; Service</h3>
@@ -524,7 +523,7 @@ function renderMembers(categoryIndex) {
         ${profile.bio ? `<p class="pi-bio">${profile.bio}</p>` : ""}
         ${category === "PI" && profile.labLogo ? `<figure class="pi-lab-logo"><img src="${profile.labLogo}" alt="${profile.labLogoAlt || ""}"></figure>` : ""}
       </div>
-      ${category === "PI" && profile.secondaryImage ? `<figure class="pi-secondary-photo"><img src="${profile.secondaryImage}" alt="${profile.secondaryImageAlt || profile.name}"><figcaption>Allison K. Walker</figcaption></figure>` : ""}
+      ${category === "PI" && profile.secondaryImage ? `<figure class="pi-secondary-photo"><img src="${profile.secondaryImage}" alt="${profile.secondaryImageAlt || profile.name}"></figure>` : ""}
       ${category === "PI" && profile.details ? `<div class="pi-profile-details">${profile.details}</div>` : ""}
     </article>
   `).join("");
