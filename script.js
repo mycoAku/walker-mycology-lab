@@ -301,7 +301,7 @@ const memberProfiles = {
     {
       name: "Allison K. Walker, PhD",
       role: "Principal investigator · Professor, Biology, Acadia University",
-      bio: "",
+      bio: "Professor in the Department of Biology at Acadia University.",
       details: `
         <div class="profile-detail-section">
           <h3>Leadership &amp; Service</h3>
@@ -623,7 +623,6 @@ function openMemberProfile(profile, category) {
           <p class="view-kicker" data-edit-key="profile:${profile.name}:category">${memberCategoryDisplay(category)}</p>
           <h2 data-edit-key="profile:${profile.name}:name">${profile.name}</h2>
           <p class="member-profile-role" data-edit-key="profile:${profile.name}:role">${profile.role}</p>
-          ${profile.bio ? `<p class="member-profile-bio" data-edit-key="profile:${profile.name}:bio">${profile.bio}</p>` : ""}
           ${profile.details || ""}
         </div>
       </div>
