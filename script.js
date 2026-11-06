@@ -540,7 +540,7 @@ function renderMembers(categoryIndex) {
           <input type="file" accept="image/*" aria-label="Add a rectangular image for ${profile.name}">
           <span>Add image</span>
         </label>
-        <div class="management-profile-caption">Research and laboratory life in the Walker Mycology Lab.</div>
+        <div class="management-profile-caption">Currently researching: Marine endophytic fungi associated with South Australian seagrass tissues</div>
       </div>
     </article>
   ` : `
