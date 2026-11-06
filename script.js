@@ -187,10 +187,15 @@ const editorToolbar = document.querySelector(".site-editor-toolbar");
 const editableStorageKey = "walker-site-text";
 let editorActive = false;
 
+const editingParam = new URLSearchParams(location.search).get("editing");
 try {
-  localStorage.removeItem(editableStorageKey);
+  if (editingParam === "1") sessionStorage.setItem("walker-editor-enabled", "1");
+  if (editingParam === "0") sessionStorage.removeItem("walker-editor-enabled");
+  if (sessionStorage.getItem("walker-editor-enabled") === "1") {
+    document.body.classList.add("editing-enabled");
+  }
 } catch {
-  // Storage can be unavailable in privacy-restricted contexts.
+  if (editingParam === "1") document.body.classList.add("editing-enabled");
 }
 
 function editableElements(root = document) {
@@ -211,8 +216,15 @@ function editableKey(element) {
 }
 
 function prepareEditableText(root = document) {
+  let saved = {};
+  try {
+    saved = JSON.parse(localStorage.getItem(editableStorageKey) || "{}");
+  } catch {
+    saved = {};
+  }
   editableElements(root).forEach(element => {
     if (!element.dataset.editKey) element.dataset.editKey = editableKey(element);
+    if (saved[element.dataset.editKey] !== undefined) element.textContent = saved[element.dataset.editKey];
   });
 }
 
