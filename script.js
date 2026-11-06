@@ -507,6 +507,7 @@ function renderMembers(categoryIndex) {
       <h3>${profile.name}</h3>
       <p class="member-role">${profile.role}</p>
       ${profile.bio ? `<p>${profile.bio}</p>` : ""}
+      ${category === "PI" && profile.details ? `<div class="pi-profile-details">${profile.details}</div>` : ""}
     </article>
   `).join("");
   roster.innerHTML = `<div class="members-roster-heading">${memberCategoryDisplay(category)}</div>` +
@@ -565,21 +566,8 @@ function renderMembers(categoryIndex) {
     });
   });
   roster.querySelectorAll(".member-photo-slot").forEach(slot => {
-    slot.setAttribute("role", "button");
-    slot.setAttribute("tabindex", "0");
-    slot.addEventListener("click", event => {
-      event.preventDefault();
-      const card = slot.closest(".member-card");
-      const profile = card.dataset.associateProfile
-        ? researchAssociateProfiles[Number(card.dataset.profileIndex)]
-        : profiles[Number(card.dataset.profileIndex)];
-      openMemberProfile(profile, category);
-    });
-    slot.addEventListener("keydown", event => {
-      if (event.key !== "Enter" && event.key !== " ") return;
-      event.preventDefault();
-      slot.click();
-    });
+    slot.removeAttribute("role");
+    slot.removeAttribute("tabindex");
   });
   prepareEditableText();
   if (editorActive) setEditorMode(true);
