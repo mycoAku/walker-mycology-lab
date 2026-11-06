@@ -532,6 +532,7 @@ function renderMembers(categoryIndex) {
         <div class="management-profile-copy">
           <h3>${profile.name}</h3>
           <p class="member-role">${profile.role}</p>
+          <div class="management-profile-bio">${profile.bio}</div>
         </div>
       </div>
       <div class="management-profile-side">
@@ -539,7 +540,7 @@ function renderMembers(categoryIndex) {
           <input type="file" accept="image/*" aria-label="Add a rectangular image for ${profile.name}">
           <span>Add image</span>
         </label>
-        <div class="management-profile-bio">${profile.bio}</div>
+        <div class="management-profile-caption">Research and laboratory life in the Walker Mycology Lab.</div>
       </div>
     </article>
   ` : `
