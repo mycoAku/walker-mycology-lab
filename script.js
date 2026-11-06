@@ -523,7 +523,26 @@ function renderMembers(categoryIndex) {
   });
   const roster = sectionContent.querySelector(".members-roster");
   const profiles = memberProfiles[category] || [];
-  const cards = profiles.map(profile => `
+  const cards = profiles.map(profile => category === "Management" ? `
+    <article class="member-card management-card" data-profile-index="${profiles.indexOf(profile)}">
+      <div class="management-profile-main">
+        <label class="member-photo-slot management-photo-slot${profile.image ? " has-photo" : ""}"${profile.image ? ` style="--member-photo: url('${profile.image}')"` : ""}>
+          <input type="file" accept="image/*" aria-label="Replace photo for ${profile.name}">
+        </label>
+        <div class="management-profile-copy">
+          <h3>${profile.name}</h3>
+          <p class="member-role">${profile.role}</p>
+        </div>
+      </div>
+      <div class="management-profile-side">
+        <label class="member-photo-slot management-media-slot">
+          <input type="file" accept="image/*" aria-label="Add a rectangular image for ${profile.name}">
+          <span>Add image</span>
+        </label>
+        <div class="management-profile-bio">${profile.bio}</div>
+      </div>
+    </article>
+  ` : `
     <article class="member-card${category === "PI" ? " pi-card" : ""}" data-profile-index="${profiles.indexOf(profile)}">
       <label class="member-photo-slot${category === "PI" ? " pi-photo-slot" : ""}${profile.image ? " has-photo" : ""}"${profile.image ? ` style="--member-photo: url('${profile.image}')"` : ""}>
         <input type="file" accept="image/*" aria-label="Replace photo for ${profile.name}">

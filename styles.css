@@ -97,6 +97,51 @@ a { color: inherit; text-decoration: none; }
 .members-roster-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .pi-roster-grid { grid-template-columns: 1fr; }
 .member-card { border-top: 1px solid var(--line); padding-top: 18px; }
+.management-card {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: minmax(260px, .9fr) minmax(420px, 1.45fr);
+  gap: 32px;
+  border-top: 1px solid var(--line);
+}
+.management-profile-main { min-width: 0; }
+.management-photo-slot {
+  aspect-ratio: 4 / 3;
+  margin-bottom: 18px;
+}
+.management-profile-copy h3 { margin-bottom: 10px; }
+.management-profile-side {
+  display: grid;
+  grid-template-rows: minmax(220px, 1fr) auto;
+  gap: 18px;
+}
+.management-media-slot {
+  aspect-ratio: auto;
+  min-height: 230px;
+  margin-bottom: 0;
+  border: 1px solid var(--line);
+  background: linear-gradient(135deg, rgba(234,242,242,.92), rgba(230,234,219,.92));
+}
+.management-media-slot span {
+  position: absolute;
+  inset: auto 14px 14px;
+  padding: 10px;
+  background: rgba(243,240,230,.92);
+  text-align: center;
+  font-family: "DM Mono", monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+}
+.management-profile-bio {
+  padding: 22px 24px;
+  border-left: 3px solid var(--blue);
+  background: rgba(255,255,255,.34);
+  color: #526159;
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: 18px;
+  line-height: 1.55;
+}
 .member-read-more {
   display: inline-flex;
   align-items: center;
@@ -663,6 +708,7 @@ body.editor-mode [data-editable]:focus {
   .view-row { grid-template-columns: 85px 1fr; }
   .members-index { gap: 6px; }
   .members-roster-grid { grid-template-columns: 1fr; }
+  .management-card { grid-template-columns: 1fr; }
   .pi-card { grid-template-columns: 1fr; }
   .pi-card .pi-photo-slot { grid-row: auto; }
   .pi-introduction { grid-column: 1; grid-row: auto; }
