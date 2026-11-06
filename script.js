@@ -351,7 +351,9 @@ const memberProfiles = {
             </li>
           </ul>
         </div>`,
-      image: "https://bayoffungi.wordpress.com/wp-content/uploads/2023/03/zocsewfi_400x400.jpeg?w=400"
+      image: "uploads/allison-walker-portrait.webp",
+      secondaryImage: "https://bayoffungi.wordpress.com/wp-content/uploads/2023/03/zocsewfi_400x400.jpeg?w=400",
+      secondaryImageAlt: "Allison K. Walker using a microscope"
     }
   ],
   Management: [
@@ -517,6 +519,7 @@ function renderMembers(categoryIndex) {
       <h3>${profile.name}</h3>
       <p class="member-role">${profile.role}</p>
       ${profile.bio ? `<p>${profile.bio}</p>` : ""}
+      ${category === "PI" && profile.secondaryImage ? `<figure class="pi-secondary-photo"><img src="${profile.secondaryImage}" alt="${profile.secondaryImageAlt || profile.name}"><figcaption>Allison K. Walker</figcaption></figure>` : ""}
       ${category === "PI" && profile.details ? `<div class="pi-profile-details">${profile.details}</div>` : ""}
     </article>
   `).join("");

@@ -160,7 +160,7 @@ a { color: inherit; text-decoration: none; }
 body.profile-open { overflow: hidden; }
 .pi-card {
   display: grid;
-  grid-template-columns: minmax(340px, 430px) minmax(300px, 1fr);
+  grid-template-columns: minmax(320px, 400px) minmax(280px, 1fr) minmax(220px, 320px);
   grid-template-rows: auto auto 1fr;
   column-gap: 55px;
   border-top: 0;
@@ -170,6 +170,9 @@ body.profile-open { overflow: hidden; }
 .pi-card h3 { font-size: 38px; margin-top: 15px; }
 .pi-card .member-role { font-size: 12px; }
 .pi-card > p:last-child { max-width: 680px; font-size: 19px; line-height: 1.65; }
+.pi-secondary-photo { grid-column: 3; grid-row: 1 / 4; margin: 0; align-self: start; }
+.pi-secondary-photo img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: center; display: block; }
+.pi-secondary-photo figcaption { margin-top: 10px; color: var(--muted); font-family: "DM Mono", monospace; font-size: 10px; text-transform: uppercase; letter-spacing: .08em; }
 .pi-profile-details { grid-column: 1 / -1; margin-top: 45px; padding-top: 12px; }
 .pi-profile-details .profile-detail-section:first-child { margin-top: 0; }
 .member-photo-slot {
@@ -537,6 +540,7 @@ body.editor-mode [data-editable]:focus {
   .members-roster-grid { grid-template-columns: 1fr; }
   .pi-card { grid-template-columns: 1fr; }
   .pi-card .pi-photo-slot { grid-row: auto; }
+  .pi-secondary-photo { grid-column: 1; grid-row: auto; }
   .member-profile-content { inset: 0; padding: 22px 20px 50px; }
   .member-profile-layout { grid-template-columns: 1fr; gap: 30px; }
   .member-profile-photo { max-width: 420px; }
