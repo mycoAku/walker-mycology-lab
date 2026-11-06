@@ -294,13 +294,14 @@ const memberCategories = [
   "Alumni",
   "Research associates"
 ];
+const memberCategoryDisplay = category => category === "PI" ? "Principal investigator" : category;
 
 const memberProfiles = {
   PI: [
     {
       name: "Allison K. Walker, PhD",
-      role: "Lab PI · Professor, Biology, Acadia University",
-      bio: "Director of the E.C. Smith Herbarium, Co-Editor in Chief of Fungal Ecology, Vice-President of the Nova Scotia Mycological Society, and member of the IUCN SSC Aquatic Fungi Specialist Group.",
+      role: "Principal investigator · Professor, Biology, Acadia University",
+      bio: "",
       details: `
         <div class="profile-detail-section">
           <h3>Leadership &amp; Service</h3>
@@ -467,7 +468,7 @@ function renderView(key) {
     sectionContent.innerHTML = `<h1 class="view-title">${view.title}</h1>
       <div class="members-directory">
         <div class="members-index" role="tablist" aria-label="Lab member categories">
-          ${memberCategories.map((category, index) => `<button type="button" role="tab" data-member-category="${index}" aria-selected="${index === 0}">${category}<span>↗</span></button>`).join("")}
+          ${memberCategories.map((category, index) => `<button type="button" role="tab" data-member-category="${index}" aria-selected="${index === 0}">${memberCategoryDisplay(category)}<span>↗</span></button>`).join("")}
         </div>
         <div class="members-roster" aria-live="polite"></div>
       </div>`;
@@ -505,11 +506,11 @@ function renderMembers(categoryIndex) {
       </label>
       <h3>${profile.name}</h3>
       <p class="member-role">${profile.role}</p>
-      <p>${profile.bio}</p>
+      ${profile.bio ? `<p>${profile.bio}</p>` : ""}
     </article>
   `).join("");
-  roster.innerHTML = `<div class="members-roster-heading">${category}</div>` +
-    (cards ? `<div class="members-roster-grid${category === "PI" ? " pi-roster-grid" : ""}" style="margin-top: 28px;">${cards}</div>` : `<div class="members-empty">${category} profiles coming soon.</div>`);
+  roster.innerHTML = `<div class="members-roster-heading">${memberCategoryDisplay(category)}</div>` +
+    (cards ? `<div class="members-roster-grid${category === "PI" ? " pi-roster-grid" : ""}" style="margin-top: 28px;">${cards}</div>` : `<div class="members-empty">${memberCategoryDisplay(category)} profiles coming soon.</div>`);
   if (category === "Research associates") {
     const associateCards = researchAssociateProfiles.map(profile => `
       <article class="member-card" data-profile-index="${researchAssociateProfiles.indexOf(profile)}" data-associate-profile="true">
@@ -521,7 +522,7 @@ function renderMembers(categoryIndex) {
         <p>${profile.bio}</p>
       </article>
     `).join("");
-    roster.innerHTML = `<div class="members-roster-heading">${category}</div>
+    roster.innerHTML = `<div class="members-roster-heading">${memberCategoryDisplay(category)}</div>
       <div class="members-roster-grid" style="margin-top: 28px;">${associateCards}</div>`;
   }
   if (category === "PI") {
@@ -529,7 +530,7 @@ function renderMembers(categoryIndex) {
       <section class="pi-gallery" aria-labelledby="pi-gallery-title">
         <div class="pi-gallery-heading">
           <div>
-            <p class="section-index">PI gallery</p>
+            <p class="section-index">Principal investigator gallery</p>
             <h2 id="pi-gallery-title">Lab moments</h2>
           </div>
           <p>Scroll through the gallery and add up to ten images.</p>
@@ -537,7 +538,7 @@ function renderMembers(categoryIndex) {
         <div class="pi-gallery-track" role="list">
           ${Array.from({ length: 10 }, (_, index) => `
             <label class="pi-gallery-slot" role="listitem">
-              <input type="file" accept="image/*" aria-label="Add PI gallery image ${index + 1}">
+              <input type="file" accept="image/*" aria-label="Add principal investigator gallery image ${index + 1}">
               <span>${String(index + 1).padStart(2, "0")}<small>Add image</small></span>
             </label>
           `).join("")}
@@ -619,10 +620,10 @@ function openMemberProfile(profile, category) {
       <div class="member-profile-layout">
         <div class="member-profile-photo${profile.image ? " has-photo" : ""}"${profile.image ? ` style="--member-photo: url('${profile.image}')"` : ""}></div>
         <div class="member-profile-copy">
-          <p class="view-kicker" data-edit-key="profile:${profile.name}:category">${category}</p>
+          <p class="view-kicker" data-edit-key="profile:${profile.name}:category">${memberCategoryDisplay(category)}</p>
           <h2 data-edit-key="profile:${profile.name}:name">${profile.name}</h2>
           <p class="member-profile-role" data-edit-key="profile:${profile.name}:role">${profile.role}</p>
-          <p class="member-profile-bio" data-edit-key="profile:${profile.name}:bio">${profile.bio}</p>
+          ${profile.bio ? `<p class="member-profile-bio" data-edit-key="profile:${profile.name}:bio">${profile.bio}</p>` : ""}
           ${profile.details || ""}
         </div>
       </div>
