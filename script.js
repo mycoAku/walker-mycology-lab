@@ -364,7 +364,7 @@ const memberProfiles = {
     {
       name: "Ximena Roman",
       role: "Research Associate | Lab Technician | Lab Daily Operations",
-      credential: "BSc Biology",
+      bio: "She completed her BSc where she was most interested in microbiology and cell biology. She is currently working in the Walker Lab as a Research Associate/Lab Technician where she collaborates with current students to instruct molecular techniques, support experimental workflows, and maintain daily lab operations.",
       image: "uploads/ximena-roman.jpeg"
     }
   ],
@@ -459,7 +459,7 @@ const researchAssociateProfiles = [
   {
     name: "Ximena Roman",
     role: "Research Associate | Lab Technician | Lab Daily Operations",
-    credential: "BSc Biology",
+    bio: "She completed her BSc where she was most interested in microbiology and cell biology. She is currently working in the Walker Lab as a Research Associate/Lab Technician where she collaborates with current students to instruct molecular techniques, support experimental workflows, and maintain daily lab operations.",
     image: "uploads/ximena-roman.jpeg"
   },
   {
