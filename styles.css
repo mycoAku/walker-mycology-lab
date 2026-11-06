@@ -79,7 +79,18 @@ a { color: inherit; text-decoration: none; }
 .members-index button.active { background: var(--blue-dark); border-color: var(--blue-dark); color: var(--white); }
 .members-roster { min-width: 0; margin-top: 55px; }
 .members-roster-heading { min-height: 58px; display: flex; align-items: center; border-bottom: 1px solid var(--line); font-family: "Source Serif 4", Georgia, serif; font-size: 28px; font-weight: 500; }
-.member-credential { margin: -8px 0 14px; color: #111; font-family: "DM Mono", monospace; font-size: 11px; font-weight: 600; letter-spacing: .04em; }
+.member-credential {
+  width: fit-content;
+  margin: -10px 0 16px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--blue);
+  color: #111;
+  font-family: "DM Mono", monospace;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .11em;
+  text-transform: uppercase;
+}
 .former-staff-section { margin-top: 70px; }
 .former-staff-section .members-roster-heading h2 { margin: 0; font-size: 28px; font-weight: 500; }
 .former-staff-section .members-roster-grid { margin-top: 28px; }
