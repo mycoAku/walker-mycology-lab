@@ -205,15 +205,8 @@ function editableKey(element) {
 }
 
 function prepareEditableText(root = document) {
-  let saved = {};
-  try {
-    saved = JSON.parse(localStorage.getItem(editableStorageKey) || "{}");
-  } catch {
-    saved = {};
-  }
   editableElements(root).forEach(element => {
     if (!element.dataset.editKey) element.dataset.editKey = editableKey(element);
-    if (saved[element.dataset.editKey] !== undefined) element.textContent = saved[element.dataset.editKey];
   });
 }
 
