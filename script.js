@@ -468,6 +468,15 @@ const researchAssociateProfiles = [
   }
 ];
 
+const formerStaffProfiles = [
+  {
+    name: "Sarah Adams",
+    role: "Former research technician",
+    bio: "Completed MSc research on marine wood-associated fungi of the Bay of Fundy and previously investigated Geum plant endophytes.",
+    image: "https://bayoffungi.wordpress.com/wp-content/uploads/2015/03/img_7247.jpg?w=750"
+  }
+];
+
 function renderView(key) {
   const view = views[key];
   if (!view) return;
@@ -530,6 +539,26 @@ function renderMembers(categoryIndex) {
   `).join("");
   roster.innerHTML = `<div class="members-roster-heading">${memberCategoryDisplay(category)}</div>` +
     (cards ? `<div class="members-roster-grid${category === "PI" ? " pi-roster-grid" : ""}" style="margin-top: 28px;">${cards}</div>` : `<div class="members-empty">${memberCategoryDisplay(category)} profiles coming soon.</div>`);
+  if (category === "Management") {
+    const formerStaffCards = formerStaffProfiles.map(profile => `
+      <article class="member-card" data-former-staff-profile="true">
+        <label class="member-photo-slot has-photo" style="--member-photo: url('${profile.image}')">
+          <input type="file" accept="image/*" aria-label="Replace photo for ${profile.name}">
+        </label>
+        <h3>${profile.name}</h3>
+        <p class="member-role">${profile.role}</p>
+        <p>${profile.bio}</p>
+      </article>
+    `).join("");
+    roster.insertAdjacentHTML("beforeend", `
+      <section class="former-staff-section" aria-labelledby="former-staff-title">
+        <div class="members-roster-heading">
+          <h2 id="former-staff-title">Former staff</h2>
+        </div>
+        <div class="members-roster-grid">${formerStaffCards}</div>
+      </section>
+    `);
+  }
   if (category === "Research associates") {
     const associateCards = researchAssociateProfiles.map(profile => `
       <article class="member-card" data-profile-index="${researchAssociateProfiles.indexOf(profile)}" data-associate-profile="true">
