@@ -199,7 +199,7 @@ try {
 }
 
 function editableElements(root = document) {
-  const candidates = root.querySelectorAll("h1, h2, h3, h4, p, strong, small, em, a, label, .section-index, .view-kicker, .view-row span, .members-roster-heading, .member-role, .affiliation-upload");
+  const candidates = root.querySelectorAll("h1, h2, h3, h4, p, strong, small, em, a, .section-index, .view-kicker, .view-row span, .members-roster-heading, .member-role, .affiliation-upload");
   return [...candidates].filter(element => !element.querySelector("h1, h2, h3, p, strong, small"));
 }
 
@@ -216,11 +216,20 @@ function prepareEditableText(root = document) {
   } catch {
     saved = {};
   }
+  let cleaned = false;
+  Object.keys(saved).forEach(key => {
+    if (/^editor:v2:.*:(label):/.test(key)) {
+      delete saved[key];
+      cleaned = true;
+    }
+  });
+  if (cleaned) localStorage.setItem(editableStorageKey, JSON.stringify(saved));
   editableElements(root).forEach(element => {
     if (!element.dataset.editKey) element.dataset.editKey = editableKey(element);
     if (saved[element.dataset.editKey] !== undefined) element.textContent = saved[element.dataset.editKey];
   });
 }
+
 
 function saveEditableText() {
   let saved = {};
